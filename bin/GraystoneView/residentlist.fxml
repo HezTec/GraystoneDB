@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="430.0" prefWidth="761.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GraystoneView.TableController">
+   <children>
+      <TableView fx:id="data" layoutX="43.0" layoutY="33.0" prefHeight="333.0" prefWidth="675.0">
+        <columns>
+          <TableColumn fx:id="residentID" prefWidth="75.0" text="Resident ID" />
+          <TableColumn fx:id="roomNum" prefWidth="75.0" text="Room #" />
+            <TableColumn fx:id="firstName" prefWidth="75.0" text="First Name" />
+            <TableColumn fx:id="lastName" prefWidth="75.0" text="Last Name" />
+            <TableColumn fx:id="address" prefWidth="75.0" text="Address" />
+            <TableColumn fx:id="city" prefWidth="75.0" text="City" />
+            <TableColumn fx:id="zip" prefWidth="75.0" text="Zip" />
+            <TableColumn fx:id="phoneNumber" prefWidth="75.0" text="Phone #" />
+            <TableColumn fx:id="ssn" prefWidth="75.0" text="SSN" />
+        </columns>
+      </TableView>
+      <Button layoutX="43.0" layoutY="380.0" mnemonicParsing="false" onAction="#homePage" text="Home" />
+      <TextField fx:id="filterField" layoutX="272.0" layoutY="380.0" prefHeight="25.0" prefWidth="229.0" />
+      <Label layoutX="236.0" layoutY="384.0" text="Filter:" />
+      <ButtonBar layoutX="526.0" layoutY="373.0" prefHeight="40.0" prefWidth="200.0">
+         <buttons>
+            <Label minWidth="36.0" prefHeight="18.0" text="        Filter by:" />
+            <ChoiceBox fx:id="choiceFilter" prefHeight="26.0" prefWidth="150.0" />
+         </buttons>
+      </ButtonBar>
+   </children>
+</AnchorPane>
