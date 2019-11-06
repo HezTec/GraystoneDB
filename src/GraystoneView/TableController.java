@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import GraystoneControl.Resident;
 import GraystoneControl.ResidentList;
 import javafx.fxml.Initializable;
 import javafx.collections.FXCollections;
@@ -78,9 +79,10 @@ public class TableController{
     
     @FXML
 	private void initialize() {
-    	
     	loadData();
-
+		
+    	
+    	try {
 		residentID.setCellValueFactory(cellData -> cellData.getValue().resIdProperty());
 		roomNum.setCellValueFactory(cellData -> cellData.getValue().roomNumProperty());
 		firstName.setCellValueFactory(cellData -> cellData.getValue().fNameProperty());
@@ -96,11 +98,25 @@ public class TableController{
 		 filterField.textProperty().addListener((observable, oldValue, newValue) -> {
 			filter.setPredicate(resident -> {
 				
-				if (newValue == null || newValue.isEmpty()) {
-					return true;
-				}
-				String lowerCaseFilter = newValue.toLowerCase();
-				if (choiceFilter.getValue().toString() == "ID") {
+				
+		
+					if (newValue == null || newValue.isEmpty()) {
+						return true;
+					}
+					String lowerCaseFilter = newValue.toLowerCase();
+					if (choiceFilter.getValue() == null) {
+						if (resident.getResidentID().toLowerCase().contains(lowerCaseFilter)) {
+							return true;
+						} else if (resident.getRoomNum().toLowerCase().contains(lowerCaseFilter)) {
+							return true;
+						} else if (resident.getFirstName().toLowerCase().contains(lowerCaseFilter)) {
+							return true;
+						} else if (resident.getLastName().toLowerCase().contains(lowerCaseFilter)) {
+							return true;
+						} else if (resident.getSSN().toLowerCase().contains(lowerCaseFilter)) {
+							return true;
+						}
+				} else if (choiceFilter.getValue().toString() == "ID") {
 					if (resident.getResidentID().toLowerCase().contains(lowerCaseFilter)) {
 						return true;
 					}
@@ -144,6 +160,9 @@ public class TableController{
 		SortedList<Resident> sortedData = new SortedList<>(filter);
 		sortedData.comparatorProperty().bind(data.comparatorProperty());
 		data.setItems(sortedData);
+    	} catch (Exception e) {
+    		
+    	}
 
 	}	
     
