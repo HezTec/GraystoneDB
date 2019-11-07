@@ -1,10 +1,13 @@
 package GraystoneSQL;
 import java.io.File;
 
-import GraystoneControl.ResidentList;
-/*
- * Main class
+
+/**
+ * main class used for testing the db queries and updates
  * 
+ * 
+ * @author 17col
+ *
  */
 public class GraystoneMain {
 	public static void main(String[] args) {
@@ -20,6 +23,10 @@ public class GraystoneMain {
 			GraystoneCreate c = new GraystoneCreate();
 			c.create();
 		}
+		
+		GraystoneReg reg = new GraystoneReg();
+		reg.insert();
+				
 	}
 	
 }

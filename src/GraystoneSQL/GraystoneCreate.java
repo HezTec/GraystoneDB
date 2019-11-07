@@ -13,7 +13,7 @@ public class GraystoneCreate extends DBFilePath {
 	 public void create() {
 		 
 		 //The path to Graystone DB file
-		 File file = getFile();
+		 File file = getDBFile();
 			
 	      Connection c = null;
 	      Statement stmt = null;
